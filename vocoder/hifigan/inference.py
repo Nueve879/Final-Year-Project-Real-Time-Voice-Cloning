@@ -1,7 +1,6 @@
 import json
-from vocoder.env import AttrDict
-from vocoder.models.hifigan import Generator
-from vocoder.utils import load_checkpoint
+from vocoder.hifigan.env import AttrDict
+from vocoder.hifigan.hifigan import Generator
 import torch
 
 
@@ -45,7 +44,7 @@ def infer_waveform(mel, progress_callback=None):
     with torch.no_grad():
         y_g_hat = _model(mel)
         audio = y_g_hat.squeeze()
-    audio = audio * 32768.0
+    # audio = audio * 32768.0
     audio = audio.cpu().numpy()
 
     return audio, output_sampling_rate

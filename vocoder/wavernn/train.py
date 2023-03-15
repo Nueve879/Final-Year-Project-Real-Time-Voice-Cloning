@@ -7,11 +7,11 @@ import torch.nn.functional as F
 from torch import optim
 from torch.utils.data import DataLoader
 
-import vocoder.hparams as hp
+import vocoder.wavernn.hparams as hp
 from vocoder.display import stream, simple_table
 from vocoder.distribution import discretized_mix_logistic_loss
-from vocoder.gen_wavernn import gen_testset
-from vocoder.models.fatchord_version import WaveRNN
+from vocoder.wavernn.gen_wavernn import gen_testset
+from vocoder.wavernn.fatchord_version import WaveRNN
 from vocoder.vocoder_dataset import VocoderDataset, collate_vocoder
 
 

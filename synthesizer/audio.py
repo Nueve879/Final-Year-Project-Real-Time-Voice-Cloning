@@ -7,7 +7,7 @@ import soundfile as sf
 
 
 def load_wav(path, sr):
-    return librosa.core.load(path, sr=sr)[0]
+    return librosa.load(path, sr=sr)[0]
 
 def save_wav(wav, path, sr):
     wav *= 32767 / max(0.01, np.max(np.abs(wav)))

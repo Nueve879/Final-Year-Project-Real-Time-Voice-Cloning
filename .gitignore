@@ -18,3 +18,4 @@
 *.flac
 /saved_models/
 /LibriSpeech/
+/test_voice_output/

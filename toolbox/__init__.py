@@ -11,7 +11,7 @@ from synthesizer.inference import Synthesizer
 from toolbox.ui import UI
 from toolbox.utterance import Utterance
 from vocoder.wavernn import inference as wavernn
-from vocoder.hifigan import inference as hifigan
+from vocoder.hifigan_paddle import inference as hifigan
 
 # Default vocoder (optional hifi-gan)
 vocoder = wavernn

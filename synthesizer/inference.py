@@ -4,7 +4,6 @@ from synthesizer.hparams import hparams
 from synthesizer.models.tacotron import Tacotron
 from synthesizer.utils.symbols import symbols
 from synthesizer.utils.text import text_to_sequence
-from vocoder.display import simple_table
 from pathlib import Path
 from typing import Union, List
 import numpy as np
@@ -116,7 +115,7 @@ class Synthesizer:
             chars = torch.tensor(chars).long().to(self.device)
             speaker_embeddings = torch.tensor(speaker_embeds).float().to(self.device)
 
-            # Inference
+            # inference
             _, mels, alignments = self._model.generate(chars, speaker_embeddings)
             mels = mels.detach().cpu().numpy()
             for m in mels:

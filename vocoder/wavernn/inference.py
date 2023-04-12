@@ -5,7 +5,7 @@ import torch
 
 _model = None   # type: WaveRNN
 
-def load_model(weights_fpath, verbose=True):
+def load_model(weights_fpath, voc_config_fpath=None, voc_stats_fpath=None, verbose=True):
     global _model, _device
     
     if verbose:
@@ -59,6 +59,7 @@ def infer_waveform(mel, normalize=True,  batched=True, target=8000, overlap=800,
     
     if normalize:
         mel = mel / hp.mel_max_abs_value
-    mel = torch.from_numpy(mel[None, ...])
+    # mel = torch.from_numpy(mel[None, ...])
+    mel = torch.from_numpy(mel.numpy()[None, ...])
     wav = _model.generate(mel, batched, target, overlap, hp.mu_law, progress_callback)
     return wav, hp.sample_rate
